@@ -1,0 +1,2 @@
+curl -X GET "localhost:9200/_cluster/nodes?v&pretty"
+curl -X GET "localhost:9200"
