@@ -1,0 +1,20 @@
+# Once docker container is created switch to non root user
+su elasticsearch
+
+# Elasticsearch tells the JVM to use a heap with a minimum and maximum size of 1 GB by default , so we need to change heap minimum and maximum size.
+go to -------> cd config ------->vi jvm.options 
+
+# change the heap size below mentioned location based upon the requirement 
+
+# Xms represents the initial size of total heap space
+# Xmx represents the maximum size of total heap space
+-Xms1g ---------> -Xms4g   (based on requirement)
+-Xmx1g ---------> -Xms4g   (based on requirement)
+
+# Then start elasticsearch
+./bin/ealstcisearch&
+
+# Do the health checks using below commands
+curl localhost:9200/_cat/health
+curl -X GET "http://localhost:9200/_cluster/health?pretty=true"
+curl -X GET "localhost:9200"
