@@ -1,6 +1,0 @@
-#!/bin/bash
-apt update -y
-apt install docker.io -y
-docker pull docker.elastic.co/elasticsearch/elasticsearch:7.6.2
-docker run -dit -p 9200:9200 -e "discovery.type=single-node" docker.elastic.co/elasticsearch/elasticsearch:7.6.2 bash
-docker ps -a
